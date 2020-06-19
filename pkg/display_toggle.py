@@ -74,7 +74,7 @@ class DisplayToggleAdapter(Adapter):
                 self.set_signal_property(bool(signal))
                 
             else:
-                os.system("vcgencmd display_power 1")    
+                os.system("vcgencmd display_power 0")    
                 self.set_signal_property(bool(signal))
 
         except Exception as ex:
@@ -184,6 +184,8 @@ class DisplayToggleDevice(Device):
         self.name = 'Display'
         self.title = 'Display'
         self.description = 'Turn the display on and off'
+        
+        self._type = ['OnOffSwitch']
 
         try:
 
